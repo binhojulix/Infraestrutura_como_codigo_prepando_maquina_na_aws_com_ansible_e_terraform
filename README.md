@@ -25,3 +25,5 @@
 11. destroy `terraform destroy`
 
 11. destroy `terraform refresh`
+
+12. run ansible `ansible-playbook playbook.yml -u ubuntu --private-key  /Users/fabiojuliodaluz/.ssh/terraform-aws -i hosts.yml` 

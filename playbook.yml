@@ -1,0 +1,22 @@
+- hosts: dev
+  tasks:
+  - name: Instalando dependências com pip ( podemos trocar o nome da tarefa)
+    become: yes
+    apt:
+      update_cache: true
+      cache_valid_time: 3600
+      pkg:
+      - python3
+      - virtualenv
+  
+   
+  
+  # - name: Instalando dependencias com pip (Django e Django Rest)
+  #   pip:
+  #     virtualenv:  /home/ubuntu/tcc/venv
+  #     name: 
+  #       - django
+  #       - djangorestframework
+  # - name : Iniciando o projeto
+  #   shell: '. /home/ubuntu/tcc/venv/bin/activate;'
+
