@@ -1,22 +1,33 @@
 - hosts: dev
   tasks:
-  - name: Instalando dependências com pip ( podemos trocar o nome da tarefa)
-    become: yes
-    apt:
-      update_cache: true
-      cache_valid_time: 3600
-      pkg:
-      - python3
-      - virtualenv
+    - name: Install apt packages
+      become: true
+      apt:
+        update_cache: true
+        cache_valid_time: 3600
+        pkg:
+          - acl
+          - git
+          - libjpeg-dev
+          - libpq-dev
+          - memcached
+          - nginx
+          - postgresql
+          - python3-dev
+          - python3-pip
+          - python3-venv
+          - python3-psycopg2
+          - supervisor
+          - virtualenv
+
   
-   
-  
-  # - name: Instalando dependencias com pip (Django e Django Rest)
-  #   pip:
-  #     virtualenv:  /home/ubuntu/tcc/venv
-  #     name: 
-  #       - django
-  #       - djangorestframework
-  # - name : Iniciando o projeto
-  #   shell: '. /home/ubuntu/tcc/venv/bin/activate;'
+    - name: Instalando dependencias com pip (Django e Django Rest)
+      pip:
+        virtualenv:  /home/ubuntu/app/venv
+        name: 
+          - django
+          - djangorestframework
+
+    - name : Iniciando o projeto
+      shell: '. /home/ubuntu/app/venv/bin/activate;'
 
