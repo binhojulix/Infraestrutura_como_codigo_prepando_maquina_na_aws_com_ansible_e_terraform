@@ -42,12 +42,12 @@ resource "aws_instance" "dev" {
   ami = "ami-06878d265978313ca"
   instance_type = "t2.micro"
   key_name = "terraform_aws"
-  user_data = <<-EOF
-        #!/bin/bash
-        cd /home/ubuntu
-        echo "<h1> Feito com terraform</h1>" > index.html
-        nohup busybox httpd -f -p 8080 &
-    EOF
+  # user_data = <<-EOF
+  #       #!/bin/bash
+  #       cd /home/ubuntu
+  #       echo "<h1> Feito com terraform</h1>" > index.html
+  #       nohup busybox httpd -f -p 8080 &
+  #   EOF
   tags = {
     Name = "dev"
   }
