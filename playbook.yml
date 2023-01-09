@@ -41,3 +41,9 @@
         backrefs: yes
 
 
+    - name : Run server
+      shell: '. /home/ubuntu/app/venv/bin/activate; python3 /home/ubuntu/app/manage.py runserver 0.0.0.0:8080 &'
+
+
+
+
